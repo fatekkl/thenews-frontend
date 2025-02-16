@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### **Projeto: TheNews Case**  
+Este projeto foi desenvolvido utilizando **Vite** para um ambiente de desenvolvimento rápido e otimizado, com **TypeScript** para garantir tipagem segura e **Tailwind CSS** para estilização eficiente e modular.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## **Tecnologias Utilizadas**  
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### **Frontend (thenews-frontend)**  
+- **Linguagem:** TypeScript  
+- **Framework:** Vite + React.js  
+- **Estilização:** Tailwind CSS  
+- **Configuração:** `vite.config.ts`, `tailwind.config.ts`, `postcss.config.js`  
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## **Estrutura do Projeto**  
+
+### 📂 **thenews-frontend** (Frontend)  
+- 📂 `public/` → Recursos estáticos, como imagens e favicon  
+- 📂 `src/`  
+  - 📂 `assets/` → Contém imagens e ícones do projeto  
+  - 📂 `components/` → Componentes reutilizáveis do React  
+    - `Authenticated.tsx` → Página autenticada com histórico de interações  
+    - `StreakDisplayer.tsx` → Componente que exibe a sequência de interações
+    - `CustomCheckbox.tsx` → Checkbox Customizada para exibição
+    - `Dashboard` → Dashboard com exibição de métricas para engajamento
+    - `HistoryItem` → Item do histórico reutilizável
+    - `InputMail` → Input para e-mail
+    - `Login` → Página de login
+    - `StreakDisplayer` → Exibição do streak atual do usuário  
+  - 📂 `pages/` → Páginas principais da aplicação  
+  - `main.tsx` → Arquivo de entrada do React  
+  - `index.html` → Estrutura HTML principal  
+- `.gitignore` → Arquivo para exclusões no Git  
+- `vite.config.ts` → Configuração do Vite  
+- `tailwind.config.ts` → Configuração do Tailwind CSS  
+- `postcss.config.js` → Configuração do PostCSS  
+
+---
+
+## **Como Rodar o Projeto Localmente**  
+
+1️⃣ **Clone o repositório**  
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2️⃣ **Instale as dependências**  
+```bash
+npm install
 ```
+
+3️⃣ **Execute o projeto**  
+```bash
+npm run dev
+```
+O frontend estará rodando localmente em **http://localhost:5173/** (ou outra porta definida pelo Vite).  
+
+---
+
+## **TO DO List**  
+
+### **Frontend**  
+- [x] Configurar Vite com TypeScript e Tailwind CSS  
+- [x] Criar estrutura inicial de componentes  
+- [x] Criar tela de login + responsividade  
+- [ ] Criar tela de Dashboard  
+- [ ] Adicionar botão para navegar para o Dashboard na tela **Authenticated**  
+- [ ] Melhorar responsividade  
+- [ ] Refinar UI/UX  
+
+---
