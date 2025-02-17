@@ -1,12 +1,26 @@
-export default function StreakDisplayer() {
-
+interface Flame {
+    width: number;
+    height: number;
+    streak: number;
+  }
+  
+  export default function StreakDisplayer({ width, height, streak }: Flame) {
     return (
-        <div className="relative flex flex-col items-center justify-center">
-            {/* Fogo como fundo do streak */}
-            <img className="w-52 h-52 object-contain" src="../../assets/fire.png" alt="Streak Fire"/>
-            
-            {/* Número da streak centralizado */}
-            <span className="absolute translate-y-7 text-tn_brown font-bold text-4xl">0</span>
-        </div>
-    )
-}
+      <div 
+        className="relative flex items-center justify-center"
+        style={{ width, height }}
+      >
+        <img
+          className="object-contain"
+          width={width}
+          height={height}
+          src="/assets/flame.svg"
+          alt="Streak Fire"
+        />
+        <span className="absolute font-bold translate-y-2 text-tn_brown">
+          {streak}
+        </span>
+      </div>
+    );
+  }
+  

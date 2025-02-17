@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Menu() {
+export default function Menu({aline = "", justify = ""}) {
 
     const color = "#000000"
     const [menuOpen, setMenuOpen] = useState(false)
@@ -16,8 +16,8 @@ export default function Menu() {
     }
 
     return (
-        <div onClick={transformMenu} className="w-full flex mt-10 pl-10 absolute z-50 max-sm:hidden">
-            <div className={`flex flex-col gap-5 fixed  cursor-pointer transition-all duration-2000 ease-in-out z-50 mt-6 mr-10`}>
+        <div onClick={transformMenu} className={`w-full flex mt-10 pl-10 ${justify}  absolute z-50 max-sm:hidden`}>
+            <div className={`flex flex-col gap-5 fixed  ${aline}  cursor-pointer transition-all duration-2000 ease-in-out z-50 mt-6 mr-10`}>
                 <svg
                     className={`transition-all duration-500 ease-in-out ${menuOpen ? "-rotate-45" : "rotate-0"}`}
                     width={`${menuOpen ? "50" : "70"}`}

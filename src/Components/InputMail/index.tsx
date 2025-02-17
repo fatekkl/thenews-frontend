@@ -5,7 +5,7 @@ export default function InputMail() {
         <div className="relative w-full max-w-full flex flex-wrap items-center border-2 border-tn_yellow rounded-lg bg-[#F9FAFB] pr-10">
             {/* Ícone à esquerda */}
             <img 
-                src="../../assets/email.png" 
+                src="/assets/email.png" 
                 alt="Logo"
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6"
             />
