@@ -1,0 +1,9 @@
+name = "thenews-frontend"
+compatibility_date = "2024-02-16"
+
+[vars]
+NODE_ENV = "production"
+
+[build]
+command = "npm run build"
+directory = "./dist"
