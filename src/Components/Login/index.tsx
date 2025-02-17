@@ -1,7 +1,5 @@
 
-import { useState } from "react";
 import InputMail from "../InputMail";
-import StreakDisplayer from "../StreakDisplayer";
 
 
 export default function Login() {

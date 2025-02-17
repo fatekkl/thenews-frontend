@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function InputMail() {
     return (
         <div className="relative w-full max-w-full flex flex-wrap items-center border-2 border-tn_yellow rounded-lg bg-[#F9FAFB] pr-10">
@@ -16,9 +18,9 @@ export default function InputMail() {
             />
 
             {/* Botão amarelo à direita */}
-            <button className="absolute right-2 bg-tn_yellow text-tn_gray px-5 md:px-6 py-2 rounded-lg w- font-semibold">
+            <Link to={"/authenticated"} className="absolute right-2 bg-tn_yellow text-tn_gray px-5 md:px-6 py-2 rounded-lg w- font-semibold">
                 entrar
-            </button>
+            </Link>
             
         </div>
     );
