@@ -67,9 +67,10 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [x] Configurar Vite com TypeScript e Tailwind CSS  
 - [x] Criar estrutura inicial de componentes  
 - [x] Criar tela de login + responsividade  
-- [ ] Criar tela de Dashboard  
-- [ ] Adicionar botão para navegar para o Dashboard na tela **Authenticated**  
+- [x] Criar tela de Dashboard  
+- [x] Adicionar botão para navegar para o Dashboard na tela **Authenticated**  
 - [ ] Melhorar responsividade  
-- [ ] Refinar UI/UX  
+- [ ] Refinar UI/UX
+- [ ] Transformar o código semânticamente
 
 ---
