@@ -70,8 +70,9 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [x] Criar tela de Dashboard  
 - [x] Adicionar botão para navegar para o Dashboard na tela **Authenticated**  
 - [x] Melhorar responsividade  
-- [ ] Refinar UI/UX
-- [ ] PARA AMANHA Transformar o código semânticamente
-- [ ] PARA AMANHA puxar dados da API
-- [ ] 
+- [x] Refinar UI/UX
+- [x] Transformar o código semânticamente
+- [x] Puxar dados da API
+- [ ] Terminar de puxar todos os dados e montar os gráficos
+- [ ] Adicionar gancho até o Dashbaord, pela authenticated
 ---
