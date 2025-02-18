@@ -1,4 +1,3 @@
-import StreakDisplayer from "../StreakDisplayer";
 
 interface RankingItemProps {
   position: number;
@@ -19,8 +18,9 @@ export default function RankingItem({ position, email, openings }: RankingItemPr
       <p className="text-center">{openings}</p>
 
       {/* Streak */}
-      <div className="flex justify-center">
-        <StreakDisplayer streak={8} width={40} height={40} />
+      <div className="flex items-center justify-around">
+        <span className="text-2xl">🌱</span>
+        <span className="text-xl">1</span>
       </div>
     </div>
   );
