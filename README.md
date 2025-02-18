@@ -73,5 +73,5 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [ ] Refinar UI/UX
 - [ ] PARA AMANHA Transformar o código semânticamente
 - [ ] PARA AMANHA puxar dados da API
-
+- [ ] 
 ---
