@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function SideBar() {
   return (
-    <aside className="w-1/3 h-full bg-tn_white flex flex-col justify-start items-start">
+    <aside className="w-1/4 h-full bg-tn_white flex flex-col justify-start items-start">
       
       {/* Cabeçalho da Sidebar */}
       <header className="flex flex-col gap-4 mt-10 ml-10">
