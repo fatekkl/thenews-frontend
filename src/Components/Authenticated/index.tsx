@@ -1,46 +1,40 @@
-import Menu from "../Menu";
-import HistoryItem from "../HistoryItem";
+import CustomCalendar from "../Calendar";
+import DataItem from "../DataItem/DataItem";
 
 export default function Authenticated() {
-    return (
-        <section className="w-screen h-screen flex flex-col bg-tn_white">
-            <Menu aline="transform scale-x-[-1]" justify="justify-end" />
+  return (
+    <section className="w-full min-h-screen flex flex-col items-center bg-tn_white p-4">
+      {/* 
+        max-w-screen-md limita a largura em telas grandes,
+        garantindo um layout mais bonito.
+      */}
+      <div className="w-full max-w-screen-md flex flex-col items-center gap-4">
+        {/* Logo responsiva: em telas menores fica w-32, em telas >=sm w-40 */}
+        <img className="w-32 sm:w-40" src="/assets/thenews_logo.png" />
 
-            {/* Conteúdo Principal */}
-            <div className="flex flex-col items-center justify-center flex-1 px-6 py-4">
+        {/* Título: em telas menores text-2xl, depois aumenta para text-4xl */}
+        <span className="text-center text-2xl sm:text-4xl font-bold">
+          Sua Jornada de Leitura
+        </span>
 
-                {/* Logo e Título */}
-                <div className="my-6 flex flex-col items-center">
-                    <img
-                        src="/assets/thenews_logo.png"
-                        alt="The News Logo"
-                        className="w-40 object-contain mb-4"
-                    />
-                    <h1 className="text-4xl text-tn_yellow font-bold text-center">
-                        Veja sua sequência
-                    </h1>
-                </div>
+        {/* Texto auxiliar: diminui em telas muito pequenas */}
+        <p className="mt-2 text-gray-600 text-sm sm:text-base">
+          Acompanhe seu progresso diário!
+        </p>
 
+        {/* 
+          Seção dos DataItems: em telas pequenas (sm:<640px) empilha em coluna,
+          a partir de sm usa flex-row lado a lado. 
+        */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <DataItem emoji="🌱" text_value="Dias Seguidos" value={1} />
+          <DataItem emoji="🏆" text_value="Recorde Pessoal" value={1} />
+          <DataItem emoji="📚" text_value="Total de Leituras" value={1} />
+        </div>
 
-                {/* Histórico */}
-                <div className="bg-[#F9FAFB] border border-tn_yellow rounded-lg p-4 w-full max-w-md shadow-lg flex flex-col gap-4 overflow-y-auto">
-                    {/* Substitua esses itens com seu array de datas */}
-                    <HistoryItem content="15/02/2025" />
-                    <HistoryItem content="14/02/2025" />
-                    <HistoryItem content="13/02/2025" />
-                    <HistoryItem content="12/02/2025" />
-                    <HistoryItem content="11/02/2025" />
-                    <HistoryItem content="10/02/2025" />
-                    <HistoryItem content="09/02/2025" />
-                </div>
-            </div>
-
-            {/* Rodapé Motivacional */}
-            <div className="bg-tn_yellow py-6 flex items-center justify-center">
-                <h1 className="text-tn_brown font-bold text-2xl text-center">
-                    Sua sequência está forte como um expresso!
-                </h1>
-            </div>
-        </section>
-    );
+        {/* Calendário (assumindo que ele mesmo já está responsivo) */}
+        <CustomCalendar/>
+      </div>
+    </section>
+  );
 }
