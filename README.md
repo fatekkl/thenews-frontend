@@ -1,5 +1,3 @@
-
-
 ### **Projeto: TheNews Case**  
 Este projeto foi desenvolvido utilizando **Vite** para um ambiente de desenvolvimento rápido e otimizado, com **TypeScript** para garantir tipagem segura e **Tailwind CSS** para estilização eficiente e modular.  
 
@@ -44,8 +42,8 @@ Este projeto foi desenvolvido utilizando **Vite** para um ambiente de desenvolvi
 
 1️⃣ **Clone o repositório**  
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/fatekkl/thenews-api
+cd thenews-api
 ```
 
 2️⃣ **Instale as dependências**  
@@ -74,5 +72,5 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [x] Transformar o código semânticamente
 - [x] Puxar dados da API
 - [ ] Terminar de puxar todos os dados e montar os gráficos
-- [ ] Adicionar gancho até o Dashbaord, pela authenticated
+- [ ] Adicionar gancho até o Dashboard, pela authenticated
 ---
