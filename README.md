@@ -71,6 +71,6 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [x] Refinar UI/UX
 - [x] Transformar o código semânticamente
 - [x] Puxar dados da API
+- [x] Adicionar gancho até o Dashboard, pela authenticated
 - [ ] Terminar de puxar todos os dados e montar os gráficos
-- [ ] Adicionar gancho até o Dashboard, pela authenticated
 ---
