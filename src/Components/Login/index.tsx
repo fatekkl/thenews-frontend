@@ -1,6 +1,19 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import InputMail from "../InputMail";
 
 export default function Login() {
+  const [email, setEmail] = useState(""); // Estado para armazenar o e-mail digitado
+  const navigate = useNavigate(); // Hook para navegação
+
+  const handleLogin = () => {
+    if (email.trim() !== "") {
+      navigate(`/?email=${encodeURIComponent(email)}`);
+    } else {
+      alert("Por favor, insira um e-mail válido.");
+    }
+  };
+
   return (
     <main className="w-screen h-screen bg-tn_white flex justify-between">
       
@@ -26,9 +39,15 @@ export default function Login() {
             </p>
           </article>
           
-          {/* Campo de e-mail */}
-          <article className="flex flex-col gap-2">
-            <InputMail />
+          {/* Campo de e-mail e botão de entrar */}
+          <article className="flex flex-col gap-4">
+            <InputMail email={email} setEmail={setEmail} />
+            <button
+              onClick={handleLogin}
+              className="bg-tn_yellow text-black font-bold text-lg px-6 py-2 rounded-lg hover:bg-yellow-600 transition"
+            >
+              Entrar
+            </button>
             <p className="text-tn_yellow text-xl font-bold">
               Se destaque entre +2M de leitores.
             </p>
@@ -39,7 +58,6 @@ export default function Login() {
 
       {/* Seção da direita com o fundo amarelo */}
       <aside className="h-screen w-1/3 bg-tn_yellow p-0" aria-hidden="true" />
-
     </main>
   );
 }

@@ -10,8 +10,8 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Login/>}/>
-          <Route path='/authenticated' element={<Authenticated/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/' element={<Authenticated/>}/>
           <Route path='/dashboard' element={<Dashboard/>}/>
         </Routes>
       </BrowserRouter>
