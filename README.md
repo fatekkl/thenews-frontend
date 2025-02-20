@@ -72,5 +72,9 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [x] Transformar o código semânticamente
 - [x] Puxar dados da API
 - [x] Adicionar gancho até o Dashboard, pela authenticated
-- [ ] Terminar de puxar todos os dados e montar os gráficos
+- [x] Ranking encerrado
+- [ ] Filtros para visualizar estatísticas por **newsletter**, **período de tempo** e **status do streak**.
+- [x] Gráficos para mostrar padrões de engajamento.
+- [x] Melhorar fortemente UI/UX da aba de Dashboard.
+
 ---
