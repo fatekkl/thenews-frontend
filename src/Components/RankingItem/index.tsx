@@ -9,7 +9,7 @@ export default function RankingItem({ position, email, openings, streak = 1 }: R
   return (
     <article 
       className="grid grid-cols-[80px_1fr_120px_80px] items-center gap-4 p-4 rounded-md 
-      bg-white shadow-sm border border-gray-200 text-lg font-medium text-tn_brown"
+      bg-gray-800/50 shadow-sm border border-gray-800 text-lg font-medium text-gray-400"
       aria-label={`Usuário na posição ${position} com ${openings} leituras e streak de ${streak} dias`}
     >
       {/* Posição no ranking */}
