@@ -46,7 +46,7 @@ const CustomCalendar: React.FC = () => {
   }, []);
 
   return (
-    <div className="h-full w-full border-2 rounded-2xl p-4 text-gra">
+    <div className="h-full w-full border-2 rounded-2xl p-4">
       <div className="flex items-center gap-2 mb-2">
         <img src="/assets/calendar.png" className="w-8" alt="Calendário" />
         <p className="text-xl font-bold">Histórico de Leituras</p>
