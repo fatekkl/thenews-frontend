@@ -53,7 +53,6 @@ export default function Engagement({ users }: DashboardProps) {
         }
 
         const jsonData = await response.json();
-        console.log(jsonData);
 
         // Garante que estamos armazenando um array do tipo UTMData[]
         setMediumData(jsonData.data || []);
@@ -100,6 +99,11 @@ export default function Engagement({ users }: DashboardProps) {
               <p className="text-gray-500 text-sm text-center">Nenhum dado disponível</p>
             )}
 
+            {/* Itens fixos de exemplo */}
+            <EngagementItem name="Email" value={10} />
+            <EngagementItem name="Orgânico" value={4} />
+            <EngagementItem name="Social" value={8} />
+            <EngagementItem name="Referral" value={9} />
           </div>
 
           {/* Seção do dropdown e gráfico */}
