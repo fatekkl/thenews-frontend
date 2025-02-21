@@ -76,5 +76,6 @@ O frontend estará rodando localmente em **http://localhost:5173/** (ou outra po
 - [ ] Filtros para visualizar estatísticas por **newsletter**, **período de tempo** e **status do streak**.
 - [x] Gráficos para mostrar padrões de engajamento.
 - [x] Melhorar fortemente UI/UX da aba de Dashboard.
+- [x] Valida se o email existe na área de login!
 
 ---

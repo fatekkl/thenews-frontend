@@ -6,9 +6,31 @@ export default function Login() {
   const [email, setEmail] = useState(""); // Estado para armazenar o e-mail digitado
   const navigate = useNavigate(); // Hook para navegação
 
-  const handleLogin = () => {
-    if (email.trim() !== "") {
-      navigate(`/home/?email=${encodeURIComponent(email)}`);
+  const API_URL_ROOT = import.meta.env.VITE_API_URL
+
+  const API_URL = `${API_URL_ROOT}/get_user?email=`
+
+
+
+  const handleLogin = async () => {
+    const trimmedEmail = email.trim(); // Remove espaços antes e depois do email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    
+    
+    if (trimmedEmail && emailRegex.test(trimmedEmail)) {
+      const response = await fetch(`${API_URL}${trimmedEmail}`)
+      
+      const jsonData = await response.json()
+
+      if (jsonData.success) {
+        navigate(`/home/?email=${encodeURIComponent(trimmedEmail)}`);
+      } else {
+        alert("Email não encontrado")
+      }
+
+
+      
     } else {
       alert("Por favor, insira um e-mail válido.");
     }
