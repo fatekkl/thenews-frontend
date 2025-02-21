@@ -28,8 +28,6 @@ export default function Login() {
       } else {
         alert("Email não encontrado")
       }
-
-
       
     } else {
       alert("Por favor, insira um e-mail válido.");
