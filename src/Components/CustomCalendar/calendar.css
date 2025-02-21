@@ -12,7 +12,7 @@
 /* 🔥 Ajusta o espaçamento e layout geral */
 .react-calendar {
     width: 100%;
-    padding: 16px;
+    padding: 8px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     transition: all 0.2s ease-in-out;
     min-height: 50px; /* 🔥 Garante um tamanho mínimo para os dias */

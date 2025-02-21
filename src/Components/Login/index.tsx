@@ -8,7 +8,7 @@ export default function Login() {
 
   const handleLogin = () => {
     if (email.trim() !== "") {
-      navigate(`/?email=${encodeURIComponent(email)}`);
+      navigate(`/home/?email=${encodeURIComponent(email)}`);
     } else {
       alert("Por favor, insira um e-mail válido.");
     }
