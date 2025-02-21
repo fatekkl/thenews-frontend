@@ -12,14 +12,14 @@ const CustomCalendar: React.FC = () => {
   const [markedDates, setMarkedDates] = useState<Date[]>([]);
 
   const params = new URLSearchParams(window.location.search);
-
+  const API_URL = import.meta.env.VITE_API_URL
   const email = params.get("email")
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8787/get_readPosts?email=${email}`
+          `${API_URL}/get_readPosts?email=${email}`
         );
 
         if (!response.ok) {

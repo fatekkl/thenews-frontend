@@ -20,13 +20,14 @@ export interface User {
 }
 
 export default function Dashboard() {
-  const params = new URLSearchParams(window.location.search);
   const [users, setUsers] = useState<User[]>([]);
+
+  const API_URL = import.meta.env.VITE_API_URL
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8787/all_users");
+        const response = await fetch(`${API_URL}/all_users`);
 
         if (!response.ok) {
           throw new Error(`Erro: ${response.status}`);

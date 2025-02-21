@@ -10,12 +10,16 @@ export default function Authenticated() {
 
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
+    const API_URL = import.meta.env.VITE_API_URL
+
 
     useEffect(() => {
         const fetchData = async () => {
-            const streak_response = await fetch(`http://127.0.0.1:8787/get_streak?email=${email}`);
-            const openings_response = await fetch(`http://127.0.0.1:8787/get_openings?email=${email}`);
-            const readPosts_response = await fetch(`http://127.0.0.1:8787/get_readPosts?email=${email}`);
+            const streak_response = await fetch(`${API_URL}/get_streak?email=${email}`);
+            const openings_response = await fetch(`${API_URL}/get_openings?email=${email}`);
+            const readPosts_response = await fetch(`${API_URL}/get_readPosts?email=${email}`);
+
+            console.log(`${API_URL}/get_readPosts?email=${email}`)
 
             const jsonData: { data: PostData[] } = await readPosts_response.json();
 

@@ -8,25 +8,37 @@ import Ranking from "../Ranking";
 /**
  * Interface para os dados da API "get_utm".
  */
-interface UTMData {
+interface SourceData {
   name: string;
   clicks: number;
   leads: number;
 }
 
+interface MediumData {
+  name: string,
+  counter: number
+}
+
+
+
 export default function Engagement({ users }: DashboardProps) {
-  const [data, setData] = useState<UTMData[]>([]);
-  const [mediumData, setMediumData] = useState<UTMData[]>([]);
+  const [data, setData] = useState<SourceData[]>([]);
+  const [mediumData, setMediumData] = useState<MediumData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [utmType, setUtmType] = useState("source");
 
-  const api_address = "http://127.0.0.1:8787/get_utm?utm_name=utm_";
+  const API_URL_ROOT = import.meta.env.VITE_API_URL
+
+  const API_URL = `${API_URL_ROOT}/get_utm?utm_name=utm_`
+
+  console.log(API_URL)
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${api_address}${utmType}`);
+        const response = await fetch(`${API_URL}${utmType}`);
         if (!response.ok) {
           throw new Error(`Erro ao buscar dados: ${response.statusText}`);
         }
@@ -47,15 +59,16 @@ export default function Engagement({ users }: DashboardProps) {
 
     const fetchMediumData = async () => {
       try {
-        const response = await fetch(`${api_address}medium`);
+        const response = await fetch(`${API_URL}medium`);
         if (!response.ok) {
           throw new Error(`Erro ao buscar dados: ${response.statusText}`);
         }
 
         const jsonData = await response.json();
 
-        // Garante que estamos armazenando um array do tipo UTMData[]
+        // Garante que estamos armazenando um array do tipo SourceData[]
         setMediumData(jsonData.data || []);
+        console.log(mediumData)
       } catch (error: any) {
         console.error(error);
         setError(error.message || "Erro desconhecido ao buscar dados.");
@@ -92,18 +105,15 @@ export default function Engagement({ users }: DashboardProps) {
 
             {/* Correção do map */}
             {mediumData.length > 0 ? (
-              mediumData.map((item) => (
-                <EngagementItem key={item.name} name={item.name} value={item.clicks} />
-              ))
+              mediumData.sort((a, b) => b.counter - a.counter) // Ordena do maior para o menor número de cliques
+                .map((item) => (
+                  <EngagementItem key={item.name} name={item.name} value={item.counter} />
+                ))
             ) : (
               <p className="text-gray-500 text-sm text-center">Nenhum dado disponível</p>
             )}
 
-            {/* Itens fixos de exemplo */}
-            <EngagementItem name="Email" value={10} />
-            <EngagementItem name="Orgânico" value={4} />
-            <EngagementItem name="Social" value={8} />
-            <EngagementItem name="Referral" value={9} />
+
           </div>
 
           {/* Seção do dropdown e gráfico */}
