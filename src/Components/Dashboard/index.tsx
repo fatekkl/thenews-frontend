@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Engagement from "../Engagement";
-import Ranking from "../Ranking";
 
 export interface DashboardProps {
   users: User[];
