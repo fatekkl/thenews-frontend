@@ -2,6 +2,10 @@
 
 Este é o frontend do **TheNews**, um projeto que exibe dados armazenados na base de dados com uma identidade visual inspirada no **The News**. O foco principal foi garantir uma exibição clara e objetiva, seguindo princípios de **hierarquia UX/UI** e **responsividade**.
 
+
+Link para o projeto aqui: https://thenews-frontend.pages.dev/
+
+
 ## 📌 **Sumário**
 - [💻 TheNews Frontend](#-thenews-frontend)
   - [📌 **Sumário**](#-sumário)

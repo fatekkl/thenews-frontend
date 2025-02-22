@@ -7,6 +7,7 @@ export default function Authenticated() {
     const [streak, setStreak] = useState(0);
     const [openings, setOpenings] = useState(0);
     const [timeRead, setTimeRead] = useState(0);
+    const [higherStreak, setHigherStreak] = useState(0)
 
     const params = new URLSearchParams(window.location.search);
     const email = params.get("email");
@@ -18,14 +19,21 @@ export default function Authenticated() {
             const streak_response = await fetch(`${API_URL}/get_streak?email=${email}`);
             const openings_response = await fetch(`${API_URL}/get_openings?email=${email}`);
             const readPosts_response = await fetch(`${API_URL}/get_readPosts?email=${email}`);
+            const higherStreak_response = await fetch(`${API_URL}/get_higher_streak?email=${email}`);
+
 
             console.log(`${API_URL}/get_readPosts?email=${email}`)
 
             const jsonData: { data: PostData[] } = await readPosts_response.json();
 
+            let totalTime = 0;
             jsonData.data.forEach(() => {
-                setTimeRead(timeRead + 5);
+                totalTime += 5;
             });
+
+            setTimeRead(totalTime)
+
+
 
             if (!streak_response.ok) {
                 throw new Error(`Error: ${streak_response.status}`);
@@ -37,9 +45,11 @@ export default function Authenticated() {
 
             const streakJsonData = await streak_response.json();
             const openingsJsonData = await openings_response.json();
+            const higherStreak = await higherStreak_response.json()
 
             setStreak(streakJsonData.data);
             setOpenings(openingsJsonData.data);
+            setHigherStreak(higherStreak.data)
         };
 
         fetchData();
@@ -91,14 +101,19 @@ export default function Authenticated() {
     return (
         <section className="w-full min-h-screen flex flex-wrap sm:justify-center lg:flex-nowrap gap-6 p-4 sm:p-6 bg-tn_white">
 
+
             {/* Aba Esquerda (Badge e Estatísticas) */}
             <div className="w-full sm:w-full lg:w-1/4 flex flex-col items-center p-6 bg-gray-50 rounded-md shadow-md">
-                <BadgeContainer image={badgeSelected.image} title={badgeSelected.title} text_mtv={badgeSelected.text_mtv} />
+                <div>
+                    <a href="/" className="text-xl cursor-pointer hover:text-tn_yellow transition-all duration-200">Voltar</a>
+                    <BadgeContainer image={badgeSelected.image} title={badgeSelected.title} text_mtv={badgeSelected.text_mtv} />
+                </div>
+
 
                 <div className="text-center mt-6">
                     <h2 className="text-lg sm:text-2xl font-bold mb-2">📊 Estatísticas</h2>
                     <p className="text-sm sm:text-lg font-semibold">📖 Leituras Concluídas: {openings}</p>
-                    <p className="text-sm sm:text-lg font-semibold">🏆 Maior Sequência: {streak} dias</p>
+                    <p className="text-sm sm:text-lg font-semibold">🏆 Maior Sequência: {higherStreak} dias</p>
                     <p className="text-sm sm:text-lg font-semibold">⏰ Total de Tempo Lido: {timeRead} minutos</p>
                 </div>
 
@@ -124,7 +139,7 @@ export default function Authenticated() {
 
                 <section className="flex flex-wrap justify-center gap-4">
                     <DataItem emoji="🌱" text_value="Dias Seguidos" value={streak} />
-                    <DataItem emoji="🏆" text_value="Recorde Pessoal" value={streak} />
+                    <DataItem emoji="🏆" text_value="Recorde Pessoal" value={higherStreak} />
                     <DataItem emoji="📚" text_value="Total de Leituras" value={openings} />
                 </section>
 
