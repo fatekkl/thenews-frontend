@@ -33,9 +33,8 @@ const CustomCalendar: React.FC = () => {
           const dateString = postId.replace("post_", ""); // Extraindo a data do postId
           const [year, month, day] = dateString.split("-").map(Number);
           return new Date(year, month - 1, day);
-        });
+        }).filter(date => date.getDay() !== 0);
 
-        console.log(formattedDates)
         setMarkedDates(formattedDates);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
